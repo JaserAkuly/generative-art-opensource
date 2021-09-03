@@ -2,10 +2,10 @@ const fs = require("fs");
 const width = 1000;
 const height = 1000;
 const dir = __dirname;
-const description = "This is an NFT made by the coolest generative code.";
-const baseImageUri = "https://hashlips/nft";
+const description = "This is an NFT made by JAkuly's generative code.";
+const baseImageUri = "https://crunchycows/nft";
 const startEditionFrom = 1;
-const editionSize = 10;
+const editionSize = 5;
 const rarityWeights = [
   {
     value: "super_rare",
@@ -15,11 +15,11 @@ const rarityWeights = [
   {
     value: "rare",
     from: 2,
-    to: 5,
+    to: 3,
   },
   {
     value: "original",
-    from: 5,
+    from: 4,
     to: editionSize,
   },
 ];
@@ -53,27 +53,9 @@ const layers = [
   },
   {
     elements: {
-      original: getElements(`${dir}/horns/original`),
-      rare: getElements(`${dir}/horns/rare`),
-      super_rare: getElements(`${dir}/horns/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
       original: getElements(`${dir}/color/original`),
       rare: getElements(`${dir}/color/rare`),
       super_rare: getElements(`${dir}/color/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
-      original: getElements(`${dir}/cheeks/original`),
-      rare: getElements(`${dir}/cheeks/rare`),
-      super_rare: getElements(`${dir}/cheeks/super_rare`),
     },
     position: { x: 0, y: 0 },
     size: { width: width, height: height },
@@ -98,15 +80,6 @@ const layers = [
   },
   {
     elements: {
-      original: getElements(`${dir}/clothing/original`),
-      rare: getElements(`${dir}/clothing/rare`),
-      super_rare: getElements(`${dir}/clothing/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
       original: getElements(`${dir}/eyes/original`),
       rare: getElements(`${dir}/eyes/rare`),
       super_rare: getElements(`${dir}/eyes/super_rare`),
@@ -125,24 +98,6 @@ const layers = [
   },
   {
     elements: {
-      original: getElements(`${dir}/eyewear/original`),
-      rare: getElements(`${dir}/eyewear/rare`),
-      super_rare: getElements(`${dir}/eyewear/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
-      original: getElements(`${dir}/hat/original`),
-      rare: getElements(`${dir}/hat/rare`),
-      super_rare: getElements(`${dir}/hat/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
       original: getElements(`${dir}/mouth/original`),
       rare: getElements(`${dir}/mouth/rare`),
       super_rare: getElements(`${dir}/mouth/super_rare`),
@@ -155,15 +110,6 @@ const layers = [
       original: getElements(`${dir}/nose/original`),
       rare: getElements(`${dir}/nose/rare`),
       super_rare: getElements(`${dir}/nose/super_rare`),
-    },
-    position: { x: 0, y: 0 },
-    size: { width: width, height: height },
-  },
-  {
-    elements: {
-      original: getElements(`${dir}/mustache/original`),
-      rare: getElements(`${dir}/mustache/rare`),
-      super_rare: getElements(`${dir}/mustache/super_rare`),
     },
     position: { x: 0, y: 0 },
     size: { width: width, height: height },

@@ -22,14 +22,14 @@ const saveImage = (_editionCount) => {
   );
 };
 
-// adds a signature to the top left corner of the canvas
-const signImage = (_sig) => {
-  ctx.fillStyle = "#000000";
-  ctx.font = "bold 30pt Courier";
-  ctx.textBaseline = "top";
-  ctx.textAlign = "left";
-  ctx.fillText(_sig, 40, 40);
-};
+// // adds a signature to the top left corner of the canvas
+// const signImage = (_sig) => {
+//   ctx.fillStyle = "#000000";
+//   ctx.font = "bold 30pt Courier";
+//   ctx.textBaseline = "top";
+//   ctx.textAlign = "left";
+//   ctx.fillText(_sig, 40, 40);
+// };
 
 // generate a random color hue
 const genColor = () => {
@@ -62,7 +62,9 @@ const generateMetadata = (_dna, _edition, _attributesList) => {
 const getAttributeForElement = (_element) => {
   let selectedElement = _element.layer.selectedElement;
   let attribute = {
-    name: selectedElement.name,
+    
+    trait_type: _element.layer.name,
+    value: selectedElement.name,
     rarity: selectedElement.rarity,
   };
   return attribute;
@@ -115,6 +117,8 @@ const isDnaUnique = (_DnaList = [], _dna = []) => {
 // use a random part for each layer
 const createDna = (_layers, _rarity) => {
   let randNum = [];
+  // console.log("This is layer" + JSON.stringify(_layers));
+  console.log("this is rarity" + JSON.stringify(_rarity));
   _layers.forEach((layer) => {
     let num = Math.floor(Math.random() * layer.elements[_rarity].length);
     randNum.push(num);
@@ -209,7 +213,7 @@ const startCreating = async () => {
         attributesList.push(getAttributeForElement(element));
       });
       // add an image signature as the edition count to the top left of the image
-      signImage(`#${editionCount}`);
+      // signImage(`#${editionCount}`);
       // write the image to the output directory
       saveImage(editionCount);
       let nftMetadata = generateMetadata(newDna, editionCount, attributesList);
